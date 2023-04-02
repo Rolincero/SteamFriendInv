@@ -9,7 +9,7 @@ using System.Text.Json.Nodes;
 
 namespace SteamFriendInv
 {
-	public static class Friend
+	public static class FriendDataProvider
 	{
 		public static async Task Get(string API, string steam_id)
 		{
@@ -20,12 +20,18 @@ namespace SteamFriendInv
 			var response = await client.GetAsync(url);
 			response.EnsureSuccessStatusCode();
 			var data = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(data);
+			Console.WriteLine(data);
 
-			foreach (var item in data.) 
-			{
-				Console.WriteLine($"{item}\n");
-			}
+			var result = new JsonArray();
+			result.Add(data);
+			Console.WriteLine(result);
         }
 	}
+
+	//private class Friend
+	//{
+	//	private decimal _steam_id { get; set; }
+	//	private string? _relationship { get; set; }
+	//	private decimal _friend_since { get; set; }
+	//}
 }
