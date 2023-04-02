@@ -33,12 +33,5 @@ namespace SteamFriendInv
 	//	private string _steam_id { get; set; }
 	//	private string _relationship { get; set; }
 	//	private string _friend_since { get; set; }
-
-	//       public Friend(string id, string rel, string frnd_since)
-	//       {
-	//           _steam_id = id;
-	//		_relationship = rel;
-	//		_friend_since = frnd_since;
-	//       }
-	//   }
+	//}
 }
