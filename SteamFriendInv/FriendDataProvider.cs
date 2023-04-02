@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net;
 using System.Text.Json.Nodes;
+using System.Text.Json;
 
 namespace SteamFriendInv
 {
@@ -24,14 +25,20 @@ namespace SteamFriendInv
 
 			var result = new JsonArray();
 			result.Add(data);
-			Console.WriteLine(result);
-        }
+		}
 	}
 
-	//private class Friend
+	//public class Friend
 	//{
-	//	private decimal _steam_id { get; set; }
-	//	private string? _relationship { get; set; }
-	//	private decimal _friend_since { get; set; }
-	//}
+	//	private string _steam_id { get; set; }
+	//	private string _relationship { get; set; }
+	//	private string _friend_since { get; set; }
+
+	//       public Friend(string id, string rel, string frnd_since)
+	//       {
+	//           _steam_id = id;
+	//		_relationship = rel;
+	//		_friend_since = frnd_since;
+	//       }
+	//   }
 }
