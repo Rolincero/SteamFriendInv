@@ -5,19 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net;
+using System.Text.Json.Nodes;
 
 namespace SteamFriendInv
 {
-	internal class Friend
+	public static class Friend
 	{
-		public void Get(string API, string steam_id)
+		public static async Task Get(string API, string steam_id)
 		{
-			string url = "https://api.steampowered.com/ISteamUser/GetFriendList/v1/?key=%7Bapi_key%7D&steamid=%7Bsteam_id%7D";
+			string url = $"https://api.steampowered.com/ISteamUser/GetFriendList/v1/?key={API}&steamid={steam_id}";
 
 			HttpClient client = new HttpClient();
 
-			client.GetAsync(url).Wait();
-            Console.WriteLine("Status: " + client.GetAsync(url));
+			var response = await client.GetAsync(url);
+			response.EnsureSuccessStatusCode();
+			var data = await response.Content.ReadAsStringAsync();
+            Console.WriteLine(data);
+
+			foreach (var item in data.) 
+			{
+				Console.WriteLine($"{item}\n");
+			}
         }
 	}
 }
