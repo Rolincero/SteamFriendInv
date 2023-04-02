@@ -1,24 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
-namespace SteamFriendInv
+namespace SteamFriendInv;
+
+internal static class InventoryDataProvider
 {
-    internal static class InventoryDataProvider
+    private static HttpClient _client = new HttpClient();
+
+    public static async Task GetInventory(string steamId = "76561198091196677")
     {
-        private static HttpClient _client = new HttpClient();
+        //string url = $"http://steamcommunity.com/inventory/{steamId}/570/2?l=english&count=5000";
+        //string url = "https://steamcommunity.com/inventory/76561198068488288/570/2?l=english";
+         string url = "https://jsonplaceholder.typicode.com/todos";
 
-        public static async Task GetInventory(string steamId)
+
+        HttpResponseMessage response = await _client.GetAsync(url);
+        response.EnsureSuccessStatusCode();
+        var data = await response.Content.ReadAsStringAsync();
+        var result = new JsonArray() 
         {
-            string url = $"http://steamcommunity.com/inventory/{steamId}/570/2?l=english&count=5000";
-
-            HttpResponseMessage response = await _client.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-            var data = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(data);
-
+            data
+        };
+        foreach (var item in result)
+        {
+            Console.WriteLine(item);
         }
     }
 }
+
