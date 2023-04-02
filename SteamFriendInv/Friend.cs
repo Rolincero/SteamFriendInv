@@ -17,7 +17,7 @@ namespace SteamFriendInv
 			HttpClient client = new HttpClient();
 
 			client.GetAsync(url).Wait();
-            Console.WriteLine("Status: " + (int)client.GetAsync(url));
+            Console.WriteLine("Status: " + client.GetAsync(url));
         }
 	}
 }
