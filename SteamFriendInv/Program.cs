@@ -1,4 +1,3 @@
-﻿
 namespace Program;
 
 internal class Programm
