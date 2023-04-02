@@ -1,12 +1,10 @@
 ﻿
-using SteamFriendInv;
-
 namespace Program;
 
 internal class Programm
 {
-    public static async Task Main()
+    public static void Main()
     {
-       await InventoryDataProvider.GetInventory();
+
     }
 }
